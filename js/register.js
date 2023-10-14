@@ -41,8 +41,11 @@ async function registerNewUser() {
             })
         });
         const data = await res.json();
-
         console.log(data);
+
+        if(!data?.token && data?.message.includes("email")) {
+            if(!validate(elEmail, "Email", elEmailError, ["unique:email"])) return;
+        }
 
         if(data.token) {
             window.localStorage.setItem("token", data.token);
@@ -58,9 +61,19 @@ async function registerNewUser() {
 
 
 function validate(el, elName, elErr, options = []) {
+        // Helper function 
+    function addInvalidClass() {
+        el.classList.add('is-invalid');
+        el.classList.remove("is-valid");
+    }
+
+    function addValidClass() {
+        el.classList.remove('is-invalid');
+        el.classList.add("is-valid");
+    }
+
     if(elName === "Password" ? el.value.length == 0 : el.value.trim().length == 0) {
-            el.classList.add('is-invalid');
-            el.classList.remove("is-valid");
+            addInvalidClass();
             elErr.textContent = `${elName} field is required !`;
             return false;
         }
@@ -70,17 +83,21 @@ function validate(el, elName, elErr, options = []) {
             if(option === 'email') {
                 const RegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                 if(!RegEx.test(el.value.trim())) {
-                    el.classList.add('is-invalid');
-                    el.classList.remove("is-valid");
+                    addInvalidClass();
                     elErr.textContent = `${elName} must be valid email address !`;
                     return false;
                 }
             }
+
+            if(option === "unique:email") {
+                    addInvalidClass();
+                    elErr.textContent = `${elName} already exists !`;
+                    return false;
+            }
         }
     }
-        
-        el.classList.remove('is-invalid');
-        el.classList.add("is-valid");
+
+        addValidClass();
         elErr.textContent = '';
         return true;
         

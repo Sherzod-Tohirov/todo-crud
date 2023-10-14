@@ -53,7 +53,7 @@
                                 <td class="todo-id">1</td>
                                 <td class="todo-name">Swimming</td>
                                 <td>
-                                    <button class="btn btn-primary edit-btn js-edit-btn px-4" type="button">
+                                    <button class="btn btn-primary edit-btn js-edit-btn px-4" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-modal">
                                         Edit
                                     </button>
                                     <button class="btn btn-danger dlt-btn js-delete-btn px-4" type="button">
@@ -72,7 +72,7 @@
                  aria-controls="addtask">Add new todo</button>
 
                 <div id="addtask" class="collapse">
-                    <div class="d-flex flex-column align-items-center bg-secondary rounded mt-5 p-3">
+                    <div class="d-flex flex-column align-items-center bg-dark border-2 border-warning rounded mt-5 p-3">
                         <h2 class="text-center text-white">Add new todo here</h2>
                         <form class="js-todo-form mt-5 w-50 d-flex flex-column">
                             <div class="form-group mb-2">
@@ -85,6 +85,31 @@
                     </div>
                 </div>
             </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-title" aria-hidden="true">
+                <div class="modal-dialog bg-dark">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="edit-title">Edit your task name</h5>
+                    <button type="button" class="btn-close btn-close-white text-white js-edit-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form id="edit-form" class="js-edit-form">
+                        <div class="form-group">
+                            <label for="edit-input">Edit task: </label>
+                            <input class="form-control bg-white js-edit-input" name="edit_new_value" type="text">
+                            <span class="text-info js-edit-error"></span>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="edit-form">Save changes</button>
+                    </div>
+                </div>
+                </div>
             </div>
         </main>
     <script src="./js/particles.min.js"></script>

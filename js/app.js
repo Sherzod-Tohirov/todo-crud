@@ -203,15 +203,29 @@ async function deleteTodo(id) {
 function addEventToActionBtn() {
     const editBtns = document.querySelectorAll('.js-edit-btn');
     const deleteBtns = document.querySelectorAll('.js-delete-btn');
-
+    const editForm = document.querySelector('.js-edit-form');
+    const elEditInput = document.querySelector('.js-edit-input');
+    const elEditError = document.querySelector('.js-edit-error');
+    const elEditModal = document.querySelector('.modal');
+    const elEditCloseBtn = document.querySelector('.js-edit-close-btn');
     editBtns.forEach(btn => {
         btn.addEventListener('click', (evt) => {
             const oldValue = Array.from(evt.target.closest('.todo-row').children).filter(item => item.classList.contains('todo-name'))[0].textContent;
-            const newValue = prompt("Enter new task name: ", oldValue);
-    
-            if(newValue?.trim().length == 0) return;
-            
-            editTodo(newValue, btn.dataset.id);
+            elEditInput.value = oldValue;
+
+            editForm.addEventListener('submit', (evt) => {
+                evt.preventDefault();
+                
+                if(!validate(elEditInput, "Edit task", elEditError)) return;
+                
+                const newValue = elEditInput.value.trim();
+                
+                editTodo(newValue, btn.dataset.id);
+                
+                elEditCloseBtn.click();
+                
+            });
+          
     
     });
 

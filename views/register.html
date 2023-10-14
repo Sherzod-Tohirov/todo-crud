@@ -7,33 +7,33 @@
     <title>Register</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
-<body>
+<body class="bg-dark text-white">
 <div class="container d-flex flex-column align-items-center justify-content-center">
     <h1 class="text-center mt-3 mb-5">Register</h1>
     <form class="w-50 js-register-form d-flex flex-column gap-2">
         <div class="form-group">
             <label for="username">Username:</label>
-            <input id="username" class="form-control js-username" name="user_name" type="text">
-            <span class="text small text-danger js-username-error"></span>
+            <input id="username" class="form-control bg-secondary p-2 border-0 text-white js-username" name="user_name" type="text">
+            <span class="text small text-info js-username-error"></span>
         </div>
         <div class="form-group">
             <label for="phone">Phone number:</label>
-            <input id="phone" class="form-control js-phone-number" name="phone" type="tel">
-            <span class="text small text-danger js-phone-error"></span>
+            <input id="phone" class="form-control bg-secondary p-2 border-0 text-white js-phone-number" name="phone" type="tel">
+            <span class="text small text-info js-phone-error"></span>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input id="email" class="form-control js-email" name="email" type="email">
-            <span class="text small text-danger js-email-error"></span>
+            <input id="email" class="form-control bg-secondary p-2 border-0 text-white js-email" name="email" type="email">
+            <span class="text small text-info js-email-error"></span>
         </div>
         <div class="form-group mb-4">
             <label for="password">Password:</label>
-            <input id="password" class="form-control js-password" name="password" type="password">
-            <span class="text small text-danger js-password-error"></span>
+            <input id="password" class="form-control bg-secondary p-2 border-0 text-white js-password" name="password" type="password">
+            <span class="text small text-info js-password-error"></span>
         </div>
-        <button class="btn btn-success btn-block py-2" type="submit">Submit</button>
+        <button class="btn btn-info btn-block text-white py-2" type="submit">Submit</button>
     </form>
-    <p class="text-center mt-4 small text-muted">Already have an account ? <a class="text text-primary" href="./login.html">Login</a></p>
+    <p class="text-center mt-4 small text-muted">Already have an account ? <a class="text text-info" href="./login.html">Login</a></p>
 </div>
 
 <script src="../js/register.js"></script>

@@ -111,9 +111,6 @@ body {
     opacity: 0.8;
 }
 
-.is-invalid {
-    border-color: #0dcaf0 !important;
-}
 
 .add-minus::after {
     background-image: url("../images/minus.svg") !important;

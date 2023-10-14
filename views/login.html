@@ -8,24 +8,24 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
 </head>
-<body>
+<body class="bg-dark text-white">
 <div class="container d-flex flex-column align-items-center justify-content-center">
     <h1 class="text-center mt-3 mb-5">Login</h1>
     <form class="w-50 js-login-form d-flex flex-column gap-2">
         <div class="form-group">
             <label for="email">Email:</label>
-            <input id="email" class="form-control js-email" name="email" type="email">
-            <span class="text small text-danger js-email-error"></span>
+            <input id="email" class="form-control bg-secondary p-2 border-0 text-white js-email" name="email" type="email">
+            <span class="text small text-info js-email-error"></span>
         </div>
         <div class="form-group mb-4">
             <label for="password">Password:</label>
-            <input id="password" class="form-control js-password" name="password" type="password">
-            <span class="text small text-danger js-password-error"></span>
+            <input id="password" class="form-control bg-secondary p-2 border-0 text-white js-password" name="password" type="password">
+            <span class="text small text-info js-password-error"></span>
         </div>
-        <span class="d-block mb-1 text-center text-danger js-error-msg login-error"></span>
-        <button class="btn btn-success btn-block py-2" type="submit">Submit</button>
+        <span class="d-block mb-1 text-center text-info js-error-msg login-error"></span>
+        <button class="btn btn-info btn-block text-white py-2" type="submit">Submit</button>
     </form>
-    <p class="text-center mt-4 small text-muted">Haven't registered yet ? <a class="text text-primary" href="./register.html">Register</a></p>
+    <p class="text-center mt-4 small text-muted">Haven't registered yet ? <a class="text text-info" href="./register.html">Register</a></p>
 </div>
 
 <script src="../js/login.js"></script>

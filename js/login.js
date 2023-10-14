@@ -68,6 +68,10 @@ async function loginUser() {
 
     }catch(e) {
         console.log(e);
+        
+        addInvalidClass(elEmail);
+        addInvalidClass(elPassword);
+
         elLoginError.textContent = "Email or Password is incorrect !";
     }
 }
@@ -76,6 +80,10 @@ async function loginUser() {
 
 
 
+function addInvalidClass(el) {
+    el.classList.add('is-invalid');
+    el.classList.remove('is-valid');
+}
 
 
 
